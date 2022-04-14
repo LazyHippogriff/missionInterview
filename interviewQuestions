@@ -334,7 +334,8 @@ std::atomic, std::mutex, std::condition_variable
 * Write a program to reverse an array.
 * Write a program to left rotate an array by d.
 * Write a prog to move zeros to the end.
-* Write a prog to find frequencies of distinct elements in a sorted array.
+* Write a prog to find frequencies of distinct elements in a sorted array. 4 cases:
+[40], [40,50], [10,20,20,30,30], [ 10,20,20,30,40]
 * finding bug(Dereferencing end iterator of vector.)
 
 
