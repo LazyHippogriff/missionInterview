@@ -333,6 +333,7 @@ std::atomic, std::mutex, std::condition_variable
 * Write a program to find the index of second largest element of an array.
 * Write a program to reverse an array.
 * Write a program to left rotate an array by d.
+* Write a prog to move zeros to the end.
 * finding bug(Dereferencing end iterator of vector.)
 
 
