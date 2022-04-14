@@ -336,6 +336,7 @@ std::atomic, std::mutex, std::condition_variable
 * Write a prog to move zeros to the end.
 * Write a prog to find frequencies of distinct elements in a sorted array. 4 cases:
 [40], [40,50], [10,20,20,30,30], [ 10,20,20,30,40]
+* Stock buy and sell problem.
 * finding bug(Dereferencing end iterator of vector.)
 
 
