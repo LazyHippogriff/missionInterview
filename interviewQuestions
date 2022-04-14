@@ -1,0 +1,344 @@
+* What is the difference between union, struct and class.
+
+
+* Write down a function to print factorial of a number using recursion.
+
+Solution:
+int printFactorial(int n) {
+    if(n<=1)
+        return 1;
+    else
+        return n * printFactorial(n-1);
+}
+
+
+
+* Spot and correct the mistake in function definition
+#include <iostream>
+
+void func(int& a) {
+    std::cout<<a<<std::endl;
+}
+
+int main()
+{
+    int a = 5;
+    func(a);
+    func(5);
+
+    return 0;
+}
+
+
+* What is the difference between static and non static member variables.
+
+
+* Find the difference in output
+#include <iostream>
+
+void printVal() {
+static int val = 42;
+std::cout<<val++<<endl;
+}
+
+int main() {
+for(int i = 0; i < 3; ++i) {
+printVal();
+}
+
+}
+
+
+vs
+
+
+#include <iostream>
+
+void printVal() {
+int val = 42;
+std::cout<<val++<<endl;
+}
+
+int main() {
+for(int i = 0; i < 3; ++i) {
+printVal();
+}
+
+}
+
+
+* Write down a singleton class.
+
+
+* What bugs can you spot in the following program?
+#include <iostream>
+
+int findLargestNumber() {
+  std::cout << "Enter number of numbers: ";
+  int n;
+  std::cin >> n;
+
+  int* arr = new int[n]();
+
+  for (int i = 0; i < n; ++i) {
+    std::cin >> arr[i];
+  }
+
+  int* largestNumber = arr;
+
+  for (int i = 1; i < n; ++i) {
+
+    if (arr[i] > *largestNumber) {
+      largestNumber = &arr[i];
+    }
+
+  }
+
+  return *largestNumber;
+}
+
+int main() {
+    int l = findLargestNumber();
+    std::cout<<"Largest Number->"<<l<<std::endl;
+}
+
+
+* double delete bug
+
+#include <cstdlib>
+
+int* allocateIntegers(int n) {
+  int* arr = new int[n]();
+
+  for(int i = 0; i < n; ++i)
+    arr[i] = rand() % n;
+
+  return arr;
+}
+
+void deallocateIntegers(int* arr) {
+  delete arr;
+}
+
+int main() {
+  int* arr = allocateIntegers(5);
+
+  int sum = 0;
+
+  for(int i = 0; i < 5; ++i)
+    sum += arr[i];
+
+  deallocateIntegers(arr);
+
+  delete [] arr;
+}
+
+
+* Difference between std::vector and a simple array.
+
+* Can I push_back an element in a vector of the following user defined class?
+class person {
+
+    person(const person& src) : name(src.name) { }
+
+    person& operator=(const person& src) {
+        name = src.name;
+        return *this;
+    }
+
+    public:
+
+    person(const std::string& val) : name(val) {}
+    std::string name;
+};
+
+std::vector<person> persons;
+
+
+* Difference between std::map and std::unordered_map
+
+                 | map             | unordered_map
+---------------------------------------------------------
+Ordering        | increasing  order   | no ordering
+                | (by default)        |
+
+Implementation  | Self balancing BST  | Hash Table
+                | like Red-Black Tree |  
+
+search time     | log(n)              | O(1) -> Average 
+                |                     | O(n) -> Worst Case
+wrong
+
+Insertion time  | log(n) + Rebalance  | Same as search
+                      
+Deletion time   | log(n) + Rebalance  | Same as search
+
+
+
+* What are the different types of polymorphism available in C++?
+Polymorphism in simple means having many forms. Its behavior is different in different situations.
+The two types of polymorphism in c++ are:
+
+Compile Time Polymorphism(function and operator overloading)
+Runtime Polymorphism(virtual functions)
+
+* What is function overloading?
+
+*Add code in the below class so that program compiles and gives output:
+100 
+110
+
+#include <iostream>
+
+class add {
+    public:
+        int a;
+
+        add(const int& x):a(x) {}
+};
+
+
+int main() {
+    add var(55);
+    std::cout<<var+45<<std::endl;
+    std::cout<<var+55<<std::endl;
+}
+
+What is a friend function?
+Ans: A friend function is a function that is specified outside a class but has the ability to access the class members’ protected and private data. 
+
+
+* Add code in the below program so that program compiles
+#include <iostream>
+
+class add {
+    public:
+        int a;
+
+        add(const int& x):a(x) {}
+};
+
+
+int main() {
+    add var(55);
+    std::cout<<var+42<<std::endl;
+    std::cout<<42+var<<std::endl;
+}
+
+Answer:
+class add {
+    public:
+        int a;
+        friend int operator+(const add& fa_var, const int& b);
+        friend int operator+(const int& b, const add& fa_var);
+        add(const int& x):a(x) {}
+};
+
+int operator+(const add& fa_var, const int& b) {
+    return fa_var.a + b;
+}
+
+int operator+(const int& b, const add& fa_var) {
+    return fa_var.a + b;
+}
+
+
+* What is runtime polymorphism?
+
+The programming technique where some code operates on any number of base objects and invokes the same methods, but the results depend on the actual type of these objects, is known as runtime polymorphism, and the objects that support this technique are polymorphic. In C++, polymorphic objects must have at least one virtual function, and only the parts of their interface that use the virtual functions for some or all of the implementation are polymorphic.
+
+* Use runtime polymorphism in the below program so that the output becomes "Koo Koo"
+
+#include <iostream>
+
+class Bird {
+    public:
+        void makeSound() {
+            std::cout<<"Chirp Chirp\n";
+        }
+
+};
+
+class Koyal : public Bird {
+    public:
+        void makeSound() {
+            std::cout<<"Koo Koo\n";
+        }
+};
+
+
+
+int main() {
+    Bird* x;
+
+    x = new Koyal;
+
+    x->makeSound();
+}
+
+
+
+* What will be the output of below program?
+#include <iostream>
+
+class Bird {
+    public:
+
+        virtual ~Bird() {
+            std::cout<<"\nBird destructor"<<std::endl;
+        }
+};
+
+class Koyal : public Bird {
+    public:
+
+    ~Koyal() override{
+        std::cout<<"\nKoyal destructor"<<std::endl;
+    }
+};
+
+
+
+int main() {
+    Bird* x;
+
+    x = new Koyal;
+
+    delete x;
+}
+
+
+Answer: 
+Koyal destructor
+
+Bird destructor
+correct
+
+What does the thread_local mean in C++
+
+
+
+Are The Arguments Passed To A C++11 Thread's Constructor Pass By Vale Or Pass By Reference?
+
+How Can We Pass C++11 Thread Arguments By Reference?
+
+What is a race condition? Difference between race condition and data race.
+
+
+various multi-thread synchronization primitives available in C++.
+std::atomic, std::mutex, std::condition_variable
+
+* Write program to delete an element from a dynamic array at a given position.
+* Write a program to check whether an array is sorted or not.
+* Write a program to find the index of second largest element of an array.
+* Write a program to reverse an array.
+* Write a program to left rotate an array by d.
+* finding bug(Dereferencing end iterator of vector.)
+
+
+
+
+
+
+
+
