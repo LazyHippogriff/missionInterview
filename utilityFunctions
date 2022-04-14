@@ -1,0 +1,24 @@
+#include <iostream>
+
+constexpr int maxSize = 10000;
+
+int g_array[maxSize];
+int g_arrSize;
+
+void inputArray() {
+    std::cout<<"Enter the size of Array: ";
+    std::cin>>g_arrSize;
+
+    for(int i = 0;i < g_arrSize ; ++i) {
+        std::cout<<"\nEnter "<<i<<" element: ";
+        std::cin>>g_array[i];
+    }
+}
+
+void printArray() {
+    for(int i = 0;i < g_arrSize ; ++i) {
+        std::cout<<"\n"<<i<<" element: ";
+        std::cout<<g_array[i];
+    }
+}
+
