@@ -70,7 +70,9 @@ printVal();
 * Write down a singleton class.
 
 
-* What bugs can you spot in the following program?
+* What bugs can you spot in the following programs?
+
+/***Program 1***/
 #include <iostream>
 
 int findLargestNumber() {
@@ -103,7 +105,7 @@ int main() {
 }
 
 
-* double delete bug
+/***Program 2***/
 
 #include <cstdlib>
 
@@ -318,7 +320,7 @@ What does the thread_local mean in C++
 
 
 
-Are The Arguments Passed To A C++11 Thread's Constructor Pass By Vale Or Pass By Reference?
+Are The Arguments Passed To A C++11 Thread's Constructor Pass By Value Or Pass By Reference?
 
 How Can We Pass C++11 Thread Arguments By Reference?
 
