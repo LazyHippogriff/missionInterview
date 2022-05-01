@@ -1,0 +1,15 @@
+Cables are what connect different devices to each other, allowing data to be transmitted over them. Most network cables used today can be split into two categories:
+copper and fiber. 
+
+Copper cables are the most common form of networking cable. They're made up of multiple pairs of copper wires inside plastic insulator.
+
+The sending device communicates binary data across these copper wires by changing the voltage between two ranges. The system at the receiving
+end is able to interpret these voltage changes as binary ones and zeros, which can then be translated into different forms of data. The most common forms of copper twisted pair cables used in networking, are Cat 5, Cat 5e, and Cat 6 cables. These are all shorthand ways of saying category 5 or category 6 cables. These categories have different physical characteristics, like the number of twists in the pair of copper wires that results in different usable
+lengths and transfer rates.
+
+Cat 5e cables have mostly replaced those older Cat 5 cables because their internals reduce crosstalk. Crosstalk is when an electrical pulse on one wire is accidentally
+detected on another wire. The receiving end isn't able to understand the data causing a network error. Higher level protocols have methods for detecting missing data and asking for the data a second time, but of course this takes up more time. The higher quality specifications of a Cat 5e cable make it less likely that data needs to be retransmitted. That means on average, you can expect more data to be transferred in the same amount of time. Cat 6 cables, following even more strict specification to avoid crosstalk, making those cables more expensive. 
+
+The second primary form of networking cable is known as fiber, short for fiber-optic cables. Fiber cables contain individual optical fibers, which are tiny tubes made out of glass about the width of a human hair. These tubes of glass can transport beams of light. Unlike copper, which uses electrical voltages, fiber cables use
+pulses of light to represent the ones and zeros of the underlying data. Fiber is even sometimes used specifically in environments where there's a lot of electromagnetic
+interference from outside sources because this can impact data being sent across copper wires. Fiber cables can generally transport data quicker than copper cables can, but they're much more expensive and fragile. Fiber can also transport data over much longer distances than copper can without suffering potential data loss.
