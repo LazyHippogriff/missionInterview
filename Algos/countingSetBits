@@ -1,0 +1,19 @@
+*** Main Concept ***
+
+number of set Bits in x =  (last bit is set ? 1 : 0) + number of set Bits in x/2
+
+We can precompute the number of set Bits in x for all x between 0 to 255 and then we can use this precomputation while processing the given number in chunks of 8 bits.
+
+*** Slightly less efficient concept ***
+
+If number of set bits in x = n
+
+then we can compute n in Theta(n) time by this:
+
+int count = 0;
+while(x != 0) {
+x = x & (x-1); //This operation will set all bits towards the right of the first set bit as zero(including the set bit)
+++count;
+}
+
+
