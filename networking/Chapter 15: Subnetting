@@ -1,0 +1,10 @@
+subnetting is the process of taking a large network and splitting it up into many individual smaller subnetworks or subnets. 
+
+As you might remember from the last lesson, address classes give us a way to break the total global IP space into discrete networks. If you want to communicate with
+the IP address 9.100.100.100, core routers on the Internet know that this IP belongs to the 9.0.0.0 Class A Network. They then route the message to the gateway router responsible for the network by looking at the network ID. 
+
+A gateway router specifically serves as the entry and exit path to a certain network. You can contrast this with core internet routers, which might only speak
+to other core routers. Once your packet gets to the gateway router for the 9.0.0.0 Class A network, that router is now responsible for getting that data to the proper
+system by looking at the host ID. 
+
+This all makes sense until you remember that a single Class A network contains 16,777,216 individual IPs. That's just way too many devices to connect to the same router. This is where subnetting comes in. With subnets you can split your large network up into many smaller ones. These individual subnets will all have their own gateway routers serving as the ingress and egress point for each subnet.
