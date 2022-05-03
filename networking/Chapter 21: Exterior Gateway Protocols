@@ -11,3 +11,5 @@ First, IP addresses need to be able to represent a network ID portion and a host
 
 Second, ASNs are looked at by humans, far less often, than IP addresses are. So because it can be useful to be able to look at the IP 9.100.100.100 and
 know that 9.0.0.0/8 address space is owned by IBM, ASNs represent entire autonomous systems. Just being able to look up the fact that AS19604 belongs to IBM is enough. 
+
+In terms of exterior gateway protocols, there is only one in use today. The entire Internet needs to agree on how to exchange this sort of information, so a single standard has emerged. This standard is known as BGP, or Border Gateway Protocol (IETF RFC4271).
