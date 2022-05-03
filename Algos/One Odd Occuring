@@ -1,0 +1,16 @@
+Problem 1: Given an array of numbers, there is only one number which appears odd number of times. Rest all numbers appear even number of times. We have to find that one odd occuring number.
+
+XOR operator's concepts are used here:
+
+Given a number x, the following are the properties of xor operator(^):
+
+x ^ 0 = x
+x ^ x ^ x ^ x ... (even number of times) = 0
+
+So basically we'll take a running xor of the array, and the result will be the odd occuring number.
+
+
+Problem 2: Given an array of size n, the array contains numbers in the range of [1,n+1] except one single number. We have to find the missing number.
+
+We'll first calculate the xor sum of the whole range. and then we'll xor this result with the whole array. The result will be the missing number.
+
