@@ -22,3 +22,5 @@ connections to networks. The information about each router is propagated to ever
 the system knows every detail about every other router in the system. Each router then uses this much larger set of information and runs complicated algorithms against it to determine what the best path to any destination network might be. Link state protocols require both more memory in order to hold all of this data and also much more processing power. This is because it has to run algorithms against this data in order to determine the quickest path to update the routing tables. 
 
 As computer hardware has become more powerful and cheaper over the years, link state protocols have mostly made distance vector protocols outdated. 
+
+The most common distance vector protocols are RIP, or Routing Information Protocol (IETF RFC2453), and EIGRP, or Enhanced Interior Gateway Routing Protocol (Cisco documentation). The most common link state protocol is OSPF, or Open Shortest Path First (IETF RFC2328).
