@@ -14,3 +14,18 @@ Problem 2: Given an array of size n, the array contains numbers in the range of 
 
 We'll first calculate the xor sum of the whole range. and then we'll xor this result with the whole array. The result will be the missing number.
 
+Problem 3: Same as problem 1, except there are 2 odd occuring numbers(x and y).
+
+We'll proceed as before calculating the xor of the whole array.
+
+This will give us x ^ y
+
+Now we'll use the following concept:
+
+a & ~(a-1) => number with only rightmost bit set(rightmost in the binary representation of a)
+
+Now we'll divide the original array into two groups: 1 containing that bit and the other not containing that bit.
+
+
+Then taking the xor of each of these 2 groups will give us our 2 numbers.
+
