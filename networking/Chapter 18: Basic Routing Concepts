@@ -1,0 +1,13 @@
+From a very basic standpoint, a router is a network device that forwards traffic depending on the destination address of that traffic. A router is a device that has at least two network interfaces, since it has to be connected to two networks to do its job. 
+
+Basic routing has just a few steps. 
+
+One, a router receives a packet of data on one of its interfaces. 
+
+Two, the router examines the destination IP of this packet. 
+
+Three, the router then looks up the destination network of this IP in its routing table. 
+
+Four, the router forwards that out though the interface that's closest to the remote network. It also decrements TTL, recalculates the checksum and puts its MAC address in ethernet frame. 
+
+These steps are repeated as often as needed until the traffic reaches its destination. 
