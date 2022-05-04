@@ -1,0 +1,5 @@
+The first three layers of our Network Model have helped us describe how individual nodes on a network can communicate with other nodes on either their own network or a remote one. But we haven't discussed how individual computer programs can communicate with each other. It's time to dive into this, because that's really the aim of computer networking. 
+
+We network computers together, not just so they can send data to each other, but because we want programs running on those computers to be able to send data to each other. This is where the Transport and Application layers of our networking model come into play. 
+
+In short, the Transport layer allows traffic to be directed to specific network applications. And the Application layer allows these applications to communicate in a way they understand. 
