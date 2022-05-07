@@ -135,3 +135,7 @@ template definition to instantiate. To see the types for x and y, just try to in
 TD with their types:
 TD<decltype(x)> xType; // elicit errors containing
 TD<decltype(y)> yType; // x's and y's types
+  
+  
+*** Note about closures ***
+“The distinction between a lambda and the corresponding closure is precisely equivalent to the distinction between a class and an instance of the class. A class exists only in source code; it doesn’t exist at runtime. What exists at runtime are objects of the class type. Closures are to lambdas as objects are to classes. This should not be a surprise, because each lambda expression causes a unique class to be generated (during compilation) and also causes an object of that class type–a closure–to be created (at runtime).”
