@@ -17,19 +17,19 @@ Bidirectional can be incremented or decremented by 1.
 Variety of operations possible on random like increment/decrement by n, comparison etc.
 
 
-Simple Data types               ->              Iterator category
-forward_list                                        forward
-list                                             Bidirectional
-vector                                              Random
+Simple Data types -> (Iterator category)
+forward_list (forward)
+list (Bidirectional)
+vector (Random)
 
 
-Associative Data types          ->              Iterator category
-set/map/multi-(map/set)                           Bidirectional
-unordered-(set/map)                               forward
+Associative Data types  -> Iterator category
+set/map/multi-(map/set)  ->  Bidirectional
+unordered-(set/map) -> forward
 
 
-Adapter Data types              ->              Do not have iterators
-queue/stack/priority-queue
+Adapter Data types e.g. queue/stack/priority-queue do not have iterators.
+
 
 
 Note: Adapter data types are built using simple data types.
