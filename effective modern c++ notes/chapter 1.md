@@ -61,3 +61,77 @@ f(name); // pass array to f
 the type deduced for T is the actual type of the array! That type includes the size of the array, so in this example, T is deduced to be const char [13], and the type of f’s parameter (a reference to this array) is const char (&)[13].
   
 Had template parameter been pass by value, the array argument passed would have decayed to a pointer and case 3 rules would have applied.
+  
+  
+  
+*** Understanding auto type deduction ***
+  
+When a variable is declared using auto, auto plays the role of T in the template, and the type specifier for the variable acts as ParamType. This is easier to show than to describe, so consider this example:
+auto x = 27;
+Here, the type specifier for x is simply auto by itself. 
+  
+On the other hand, in this declaration,
+const auto cx = x;
+the type specifier is const auto. 
+  
+And here,
+const auto& rx = x;
+the type specifier is const auto&. To deduce types for x, cx, and rx in these examples,
+compilers act as if there were a template for each declaration as well as a call to
+that template with the corresponding initializing expression.
+  
+Exception case between auto and template
+
+If the corresponding template is passed the same initializer, type deduction fails, and the code is rejected.
+auto x = { 11, 23, 9 }; // x's type is std::initializer_list<int>
+
+template<typename T> // template with parameter
+void f(T param); // declaration equivalent to x's declaration
+
+f({ 11, 23, 9 }); // error! can't deduce type for T
+  
+However, if you specify in the template that param is a std::initializer_list<T> for some unknown T, template type deduction will deduce what T is:
+
+template<typename T>
+void f(std::initializer_list<T> initList);
+f({ 11, 23, 9 }); // T deduced as int, and initList's
+// type is std::initializer_list<int>
+  
+  
+* 'auto' in function return type will use template rules.
+  
+So a function with an auto return type that returns a braced initializer won’t compile:
+auto createInitList()
+{
+return { 1, 2, 3 }; // error: can't deduce type or { 1, 2, 3 }
+} 
+
+The same is true when auto is used in a parameter type specification in a C++14 lambda
+  
+  
+*** Understand decltype ***
+  
+C++14 supports decltype(auto), which, like auto, deduces a type from its initializer, but it performs the type deduction using the decltype rules.
+  
+Applying decltype to a name yields the declared type for that name. Names are lvalue expressions, but that doesn’t affect decltype’s behavior. For lvalue expressions
+more complicated than names, however, decltype ensures that the type reported is always an lvalue reference. That is, if an lvalue expression other than a name has type T, decltype reports that type as T&. There is an implication of this behavior that is worth being aware of, however. 
+In
+int x = 0;
+x is the name of a variable, so decltype(x) is int. But wrapping the name x in parentheses—“(x)”—yields an expression more complicated than a name. Being a
+name, x is an lvalue, and C++ defines the expression (x) to be an lvalue, too. decltype((x)) is therefore int&. Putting parentheses around a name can change
+the type that decltype reports for it!
+  
+
+  
+  
+*** Method to check type ***
+Suppose, for example, we’d like to see the types that were deduced for x and y in the
+previous example. We first declare a class template that we don’t define. Something
+like this does nicely:
+template<typename T> // declaration only for TD;
+class TD; // TD == "Type Displayer"
+Attempts to instantiate this template will elicit an error message, because there’s no
+template definition to instantiate. To see the types for x and y, just try to instantiate
+TD with their types:
+TD<decltype(x)> xType; // elicit errors containing
+TD<decltype(y)> yType; // x's and y's types
