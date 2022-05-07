@@ -1,12 +1,15 @@
 There are 5 'logical' categories of iterators(hierarchical i.e. the next category in the hierarchy contains all the properties of the elements in the previous level in the hierarchy):
 
-input                 output
-      \               /
-           Forward
-              |
-        Bidirectional
-              |
-            Random
+1a) input
+1b) output
+
+2) Forward
+
+3) Bidirectional
+
+4) Random
+
+
 
 input iterator cannot be written vice versa for output.
 input, output and forward iterators can only be incremented forward.
